@@ -5,8 +5,7 @@ Author: Harlean
 '''
 
 def find_empty(puzzle):
-    #find next row, col on puzzle that is not filled, replace with -1
-    #using 0 indexing i.e. 0-8
+    '''Find next row, col on puzzle that is not filled (would be -1)'''
     for row in range(9):
         for column in range(9):
             if puzzle[row][column] == -1:
@@ -15,7 +14,7 @@ def find_empty(puzzle):
     return None, None # no spaces in puzzle left
 
 def is_valid(puzzle, guess, row, column):
-    # checks if guess is valid, returns True if valid and False otherwise
+    '''Checks if guess is valid, returns True if valid and False otherwise'''
     row_values = puzzle[row]
     if guess in row_values:
         return False
@@ -38,7 +37,7 @@ def is_valid(puzzle, guess, row, column):
     return True # passed through all checks
 
 def solve_sudoku(puzzle):
-    # using backtracking, puzzle is a list of lists where each inner list is a row
+    '''Using backtracking, puzzle is a list of lists where each inner list is a row'''
     # return whether a solution exists
     row, column = find_empty(puzzle)
     if row is None:
